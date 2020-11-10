@@ -1,0 +1,9 @@
+<br>
+<br>
+<%= simple_form_for(@task) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :details %>
+  <%= f.submit %>
+<% end %>
+<br>
+<%= link_to "Cancel", tasks_path, class: "btn btn-light" %>

@@ -1,0 +1,24 @@
+<br>
+<br>
+<div class="card mb-3">
+  <img src="https://source.unsplash.com/random/1000x200" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h2 class="card-title"><%= @task.title %></h2>
+    <% if @task.completed %>
+      <div class="alert alert-success" role="alert">
+      Completed
+      </div>
+    <% else %>
+      <div class="alert alert-danger" role="alert">
+      To do
+      </div>
+    <% end %>
+    <p class="card-text"><%= @task.details %></p>
+    <p class="card-text"><small class="text-muted">Updated: <%= @task.updated_at %></small></p>
+    <%= link_to "Back to list", tasks_path, class: "btn btn-light" %>
+    <%= link_to "Edit", edit_task_path, class: "btn btn-primary" %>
+    <%= link_to "Delete", task_path(@task), method: :delete, class: "btn btn-danger", data: { confirm: "are you sure?" } %>
+  </div>
+</div>
+
+

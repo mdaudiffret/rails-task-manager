@@ -1,0 +1,20 @@
+<br>
+<br>
+<div class="card">
+   <h5 class="card-header">My tasks</h5>
+   <div class="card-body">
+    <div class="card" style="width: 18rem;">
+      <ul class="list-group list-group-flush">
+        <% @tasks.each do |task| %>
+          <% if task.completed == true %>
+            <li class="list-group-item"> ✅ - <%= link_to task.title, task_path(task) %> </li>
+          <% else %>
+            <li class="list-group-item"> 🔲  - <%= link_to task.title, task_path(task) %> </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+    <br>
+    <%= link_to "✚ Add a New Task", new_task_path, class: "btn btn-primary" %>
+  </div>
+</div>
