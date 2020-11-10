@@ -7,9 +7,15 @@
       <ul class="list-group list-group-flush">
         <% @tasks.each do |task| %>
           <% if task.completed == true %>
-            <li class="list-group-item"> ✅ - <%= link_to task.title, task_path(task) %> </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span>✅  - <%= link_to task.title, task_path(task) %></span>
+              <%= link_to "delete", task_path(task), method: :delete, class: "badge badge-danger badge-pill", data: { confirm: "are you sure?" } %>
+            </li>
           <% else %>
-            <li class="list-group-item"> 🔲  - <%= link_to task.title, task_path(task) %> </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span>🔲  - <%= link_to task.title, task_path(task) %></span>
+              <%= link_to "delete", task_path(task), method: :delete, class: "badge badge-danger badge-pill", data: { confirm: "are you sure?" } %>
+            </li>
           <% end %>
         <% end %>
       </ul>
